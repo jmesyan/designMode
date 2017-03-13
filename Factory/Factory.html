@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工厂模式测试</title>
+    <script type="text/javascript" src="Factory.js"></script>
+</head>
+<body>
+    <script>
+        //test
+        var shapeFac=new shapeFactory();
+        var shape=shapeFac.getShape("circle");
+        shape.draw();
+        shape=shapeFac.getShape("rectangle");
+        shape.draw();
+        shape=shapeFac.getShape("abc");
+        shape.draw();
+    </script>
+
+</body>
+</html>
