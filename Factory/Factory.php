@@ -42,12 +42,12 @@ class shapeFactory
         if($shapeType==null){
             return null;
         }
-        $shapeType=strtoupper($shapeType);
-        if($shapeType=="RECTANGLE"){
+        $shapeType=strtolower($shapeType);
+        if($shapeType=="rectangle"){
             return new Rectangle();
-        }elseif($shapeType=="SQUARE"){
+        }elseif($shapeType=="square"){
             return new Square();
-        }elseif($shapeType=="CIRCLE"){
+        }elseif($shapeType=="circle"){
             return new Circle();
         }
         return null;
