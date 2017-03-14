@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>abstructFactory</title>
+    <script type="text/javascript" src="abstractFactory.js"></script>
+</head>
+<body>
+    <script>
+        facProducer=new FactoryProducer();
+        shapePro=facProducer.getFactory("shape");
+        shape1=shapePro.getShape("circle");
+        shape1.draw();
+        shape2=shapePro.getShape("rectangle");
+        shape2.draw();
+
+        colorPro=facProducer.getFactory("color");
+        color1=colorPro.getColor("green");
+        color1.fill();
+        color2=colorPro.getColor("red");
+        color2.fill();
+    </script>
+</body>
+</html>
