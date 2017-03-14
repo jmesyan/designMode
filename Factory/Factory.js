@@ -22,8 +22,6 @@ Circle.prototype.draw=function(){
 //定义shape工厂
 function shapeFactory(){}
 
-shapeFactory.prototype.shapeClass=Rectangle;//默认为长方形
-
 shapeFactory.prototype.getShape=function(shapeType){
     if(shapeType==null){
         return null;
@@ -31,16 +29,16 @@ shapeFactory.prototype.getShape=function(shapeType){
     shapeType=shapeType.toLowerCase();
     switch(shapeType){
         case "rectangle":
-            this.shapeClass=Rectangle;
+            return new Rectangle();
             break;
         case "square":
-            this.shapeClass=Square;
+            return new Square();
             break;
         case "circle":
-            this.shapeClass=Circle;
+            return new Circle();
             break;
         default:
             throw new Error("no graph find!")
     }
-    return new this.shapeClass();
+    return null;
 }
