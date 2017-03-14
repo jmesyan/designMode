@@ -1,2 +1,2 @@
-# designMode
+# designPattern
 设计模式
