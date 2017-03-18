@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Builder</title>
+    <script type="text/javascript" src="Builder.js"></script>
+</head>
+<body>
+     <script>
+         //demo
+         var mealManger=new MealManger();
+         vegMeal=mealManger.prepareVegMeals();
+         console.log("veg Meal:");
+         console.log(vegMeal.showItems());
+         console.log("Total Cost:"+vegMeal.getCost());
+
+         var nonVegMeal=mealManger.prepareNonVegMeals();
+         console.log("nonveg Meal:");
+         console.log(nonVegMeal.showItems());
+         console.log("Total Cost:"+nonVegMeal.getCost());
+     </script>
+</body>
+</html>
