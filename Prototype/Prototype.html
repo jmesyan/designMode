@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototype</title>
+    <script type="text/javascript" src="Prototype.js"></script>
+</head>
+<body>
+    <script>
+        //demo
+        var shapeCache=new ShapeCache();
+        shapeCache.loadCache();
+        var clonedShape1=shapeCache.getShape("1")
+        console.log("Shape1:",clonedShape1.getType())
+        clonedShape1.draw()
+
+        var clonedShape2=shapeCache.getShape("2")
+        console.log("Shape2:",clonedShape2.getType())
+        clonedShape2.draw()
+
+        var clonedShape3=shapeCache.getShape("3")
+        console.log("Shape3:",clonedShape3.getType())
+        clonedShape3.draw()
+
+        var clonedShape4=shapeCache.getShape("1")
+        clonedShape4.setType("Hello");
+        console.log("Shape4:",clonedShape4.getType())
+        clonedShape4.draw()
+        console.log("Shape1:",clonedShape1.getType())
+    </script>
+</body>
+</html>
