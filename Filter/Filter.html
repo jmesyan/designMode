@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+    <script src="Filter.js"></script>
+</head>
+<body>
+     <script>
+         //demo
+         var persons = [];
+         persons.push(new Person("Robert", "Male", "Single"));
+         persons.push(new Person("John", "Male", "Married"));
+         persons.push(new Person("Laura", "Female", "Married"));
+         persons.push(new Person("Diana", "Female", "Single"));
+         persons.push(new Person("Mike", "Male", "Single"));
+         persons.push(new Person("Bobby", "Male", "Single"));
+
+         var male = new CriteriaMale();
+         var female = new CriteriaFemale();
+         var single = new CriteriaSingle();
+         var singleMale = new AndCriteria(single,male);
+         var singleOrFemale = new OrCriteria(single,female);
+
+         console.log("Males: ");
+         printPersons(male.meetCriteria(persons));
+
+         console.log("Females: ");
+         printPersons(female.meetCriteria(persons));
+
+         console.log("Single Males: ");
+         printPersons(singleMale.meetCriteria(persons));
+
+         console.log("Single Or Females: ");
+         printPersons(singleOrFemale.meetCriteria(persons));
+     </script>
+
+</body>
+</html>
