@@ -31,7 +31,11 @@ func(s *ShapeDector)draw(){
 }
 
 type RedShapeDector struct {
-	*ShapeDector
+	ShapeDector
+}
+
+func(r *RedShapeDector)init(shape Shape){
+	r.dectorShape=shape;
 }
 func(r *RedShapeDector)setRedBorder(shape Shape){
    fmt.Println("Bolder Color:Red")
@@ -44,8 +48,10 @@ func(r *RedShapeDector)draw(){
 
 func main(){
 	circle:=new(Circle)
-	redCircle:=&RedShapeDector{new(Circle)}
-	redRectangle:=&RedShapeDector{new(Rectangle)}
+	redCircle:=new(RedShapeDector)
+	redCircle.init(new(Circle))
+	redRectangle:=new(RedShapeDector)
+	redRectangle.init(new(Rectangle))
 
 	circle.draw()
 	redCircle.draw()
