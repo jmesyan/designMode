@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flyweight</title>
+    <script src="Flyweight.js" type="text/javascript"></script>
+</head>
+<body>
+    <script>
+        //demo
+        var  shapeFactory=new ShapeFactory();
+        var  colors=["Red", "Green", "Blue", "White", "Black"];
+        for(var i=0;i<20;i++){
+            var circle=shapeFactory.getCircle(colors[Math.round(Math.random()*4)]);
+            circle.setX(Math.floor(Math.random()*100));
+            circle.setY(Math.floor(Math.random()*100));
+            circle.setRadius(100);
+            circle.draw()
+        }
+    </script>
+</body>
+</html>
