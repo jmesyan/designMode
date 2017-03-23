@@ -127,7 +127,7 @@ class OrCriteria implements Criteria
     {
         // TODO: Implement meetCriteria() method.
         $firstCriteriaItems = $this->criteria->meetCriteria($persons);
-        $otherCriteriaItem = $this->criteria->meetCriteria($persons);
+        $otherCriteriaItem = $this->otherCriteria->meetCriteria($persons);
         foreach ($otherCriteriaItem as $person) {
             if (!in_array($person, $firstCriteriaItems)) {
                 array_push($firstCriteriaItems, $person);
