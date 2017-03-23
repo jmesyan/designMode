@@ -25,15 +25,15 @@ func (p *Person)getMaritalStatus() string {
 }
 
 type Criteria interface {
-	meetCriteria(persons list.List) list.List
+	meetCriteria(persons *list.List) *list.List
 }
 
 type CriteriaMale struct {
 
 }
 
-func (c *CriteriaMale)meetCriteria(persons list.List) list.List {
-	var malePersons list.List
+func (c *CriteriaMale)meetCriteria(persons *list.List) *list.List {
+	malePersons:=list.New()
 	for p := persons.Front(); p != nil; p = p.Next() {
 		person := p.Value.(*Person)
 		gender := strings.ToLower(person.getGender())
@@ -48,8 +48,8 @@ type CriteriaFemale struct {
 
 }
 
-func (c *CriteriaFemale)meetCriteria(persons list.List) list.List {
-	var femalePersons list.List
+func (c *CriteriaFemale)meetCriteria(persons *list.List) *list.List {
+	femalePersons:=list.New()
 	for p := persons.Front(); p != nil; p = p.Next() {
 		person := p.Value.(*Person)
 		gender := strings.ToLower(person.getGender())
@@ -64,8 +64,8 @@ type CriteriaSingle struct {
 
 }
 
-func (c *CriteriaSingle)meetCriteria(persons list.List) list.List {
-	var singlePersons list.List
+func (c *CriteriaSingle)meetCriteria(persons *list.List) *list.List {
+	singlePersons:=list.New()
 	for p := persons.Front(); p != nil; p = p.Next() {
 		person := p.Value.(*Person)
 		maritalStatus := strings.ToLower(person.getMaritalStatus())
@@ -81,7 +81,7 @@ type AndCriteria struct {
 	otherCriteria Criteria
 }
 
-func (a *AndCriteria)meetCriteria(persons list.List) list.List {
+func (a *AndCriteria)meetCriteria(persons *list.List) *list.List {
 	firstCriteriaPersons := a.criteria.meetCriteria(persons)
 	return a.otherCriteria.meetCriteria(firstCriteriaPersons)
 }
@@ -91,12 +91,12 @@ type OrCriteria struct {
 	otherCriteria Criteria
 }
 
-func (o *OrCriteria)meetCriteria(persons list.List) list.List {
+func (o *OrCriteria)meetCriteria(persons *list.List) *list.List {
 	firstCriteriaPersons := o.criteria.meetCriteria(persons)
 	otherCriteriaPersons := o.otherCriteria.meetCriteria(persons)
 	for p := otherCriteriaPersons.Front(); p != nil; p = p.Next() {
 		person := p.Value.(*Person)
-		contains, _ := Contains(firstCriteriaPersons, person)
+		contains := Contains(firstCriteriaPersons, person)
 		if (!contains) {
 			firstCriteriaPersons.PushBack(person)
 		}
@@ -105,16 +105,16 @@ func (o *OrCriteria)meetCriteria(persons list.List) list.List {
 	return firstCriteriaPersons
 }
 
-func Contains(l list.List, value *Person) (bool, *list.Element) {
+func Contains(l *list.List, value *Person) bool {
 	for e := l.Front(); e != nil; e = e.Next() {
-		if (e.Value == value) {
-			return true, e
+		if (e.Value.(*Person) == value) {
+			return true
 		}
 	}
-	return false, nil
+	return false
 }
 
-func printPersons(p list.List) {
+func printPersons(p *list.List) {
 	for e := p.Front(); e != nil; e = e.Next() {
 		person := e.Value.(*Person)
 		fmt.Println("Person : [ Name : ", person.getName(), ", Gender : ", person.getGender(), ", Marital Status : ", person.getMaritalStatus(), " ]")
@@ -133,21 +133,21 @@ func main() {
 
 	male := new(CriteriaMale)
 	fmt.Println("Males: ")
-	printPersons(male.meetCriteria(persons))
+	printPersons(male.meetCriteria(&persons))
 
 	female := new(CriteriaFemale)
 	fmt.Println("Females: ")
-	printPersons(female.meetCriteria(persons))
+	printPersons(female.meetCriteria(&persons))
 
 	single := new(CriteriaSingle)
 
 	singleMale := &AndCriteria{single, male}
 	fmt.Println("singleMales: ")
-	printPersons(singleMale.meetCriteria(persons))
+	printPersons(singleMale.meetCriteria(&persons))
 
 	singleOrFemale := &OrCriteria{single, female}
 	fmt.Println("single or females: ")
-	printPersons(singleOrFemale.meetCriteria(persons))
+	printPersons(singleOrFemale.meetCriteria(&persons))
 }
 
 
