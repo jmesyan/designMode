@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facade</title>
+    <script type="text/javascript" src="Facade.js"></script>
+</head>
+<body>
+    <script>
+        var shapeMaker=new ShapeMaker(new Circle(),new Rectangle(),new Square());
+        shapeMaker.drawCircle();
+        shapeMaker.drawRectangle();
+        shapeMaker.drawSquare();
+    </script>
+</body>
+</html>
