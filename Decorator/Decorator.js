@@ -32,9 +32,16 @@ var RedShapeDector=function(dectorShape){
     ShapeDector.call(this,dectorShape);
 }
 
+RedShapeDector.prototype=Object.create(ShapeDector.prototype)
+
 RedShapeDector.prototype.draw=function() {
-    ShapeDector.draw.call(this)
+    this.dectorShape.draw();
+    this.setRedBorder();
 
 };
+
+RedShapeDector.prototype.setRedBorder=function(){
+    console.log("Border Color:Red");
+}
 
 

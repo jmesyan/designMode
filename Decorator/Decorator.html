@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decorator</title>
+    <script type="text/javascript" src="Decorator.js"></script>
+</head>
+<body>
+    <script>
+        //demo
+        var circle=new Circle();
+        var redCircle=new RedShapeDector(new Circle());
+        var redRectangle=new RedShapeDector(new Rectangle());
+        circle.draw();
+        redCircle.draw();
+        redRectangle.draw();
+    </script>
+</body>
+</html>
