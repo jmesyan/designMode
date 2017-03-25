@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buiness</title>
+    <script type="text/javascript" src="Business.js"></script>
+</head>
+<body>
+     <script>
+         //demo
+         var delegate=new BusinessDelegate();
+         var client=new Client(delegate);
+         delegate.setSeviceType("EJB")
+         client.doTask()
+         delegate.setSeviceType("JMS")
+         client.doTask()
+     </script>
+</body>
+</html>
