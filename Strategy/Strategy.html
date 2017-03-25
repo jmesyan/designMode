@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strategy</title>
+    <script src="Strategy.js"></script>
+</head>
+<body>
+      <script>
+          //demo
+          var context=new Context(new OperationAdd());
+          console.log("10+5="+context.executeStrategy(10,5)+"\r\n");
+
+          var context=new Context(new OperationSubstract());
+          console.log("10-5="+context.executeStrategy(10,5)+"\r\n");
+
+          var context=new Context(new OperationMultipy());
+          console.log("10*5="+context.executeStrategy(10,5)+"\r\n");
+      </script>
+</body>
+</html>
