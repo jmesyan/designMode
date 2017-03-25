@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Command</title>
+    <script type="text/javascript" src="Command.js"></script>
+</head>
+<body>
+    <script>
+        //demo
+        var stock=new Stock("abc",10);
+        var broker=new Broker();
+        var buyOrder=new BuyOrder(stock);
+        var sellOrder=new SellOrder(stock);
+        broker.takeOrder(buyOrder);
+        broker.takeOrder(sellOrder);
+        broker.takeOrder(buyOrder);
+        broker.placeOrder();
+    </script>
+</body>
+</html>
