@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Observer</title>
+    <script src="Observer.js"></script>
+</head>
+<body>
+     <script>
+         //demo
+         var subject=new Subject();
+         new BinaryObserve(subject);
+         new OctalObserve(subject);
+         new HexaObserve(subject);
+         subject.setState(15);
+         subject.setState(10);
+     </script>
+</body>
+</html>
