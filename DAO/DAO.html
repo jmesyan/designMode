@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DAO</title>
+    <script src="DAO.js"></script>
+</head>
+<body>
+    <script>
+        //demo
+        var studentDao=new StudentDao();
+        for(var s in studentDao.getAllStudents()){
+            var student=studentDao.getAllStudents()[s];
+            console.log("Student: [RollNo : "+student.getRollNo()+", Name : "+student.getName()+" ]")
+        }
+        var student=studentDao.getAllStudents()[0];
+        student.setName("Michael");
+        studentDao.updateStudent(student);
+
+        student=studentDao.getStudent(0);
+        console.log("Student: [RollNo : "+student.getRollNo()+", Name : "+student.getName()+" ]")
+
+    </script>
+</body>
+</html>
