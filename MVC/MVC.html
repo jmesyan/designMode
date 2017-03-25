@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mvc</title>
+    <script src="MVC.js"></script>
+</head>
+<body>
+    <script>
+        //demo
+        var model=new Student("Lucy",10);
+        var view=new View();
+        var controller=new Controller(model,view);
+        controller.updateView()
+        controller.setStudentName("John");
+        controller.setStudentRollNo(18)
+        controller.updateView()
+    </script>
+</body>
+</html>
