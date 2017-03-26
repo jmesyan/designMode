@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InterceptingFilter</title>
+    <script src="InterceptingFilter.js"></script>
+</head>
+<body>
+     <script>
+         var filterManager=new FilterManager();
+         filterManager.setFilter(AuthFilter);
+         filterManager.setFilter(DebugFilter);
+         var client=new Client(filterManager);
+         client.sendRequest("Home");
+     </script>
+</body>
+</html>
