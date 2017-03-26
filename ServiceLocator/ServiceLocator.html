@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ServiceLocator</title>
+    <script src="ServiceLocator.js"></script>
+</head>
+<body>
+<script>
+    //demo
+    var serviceLocator=new ServiceLocator();
+    var service1=serviceLocator.getService("service1");
+    service1.execute();
+    var service2=serviceLocator.getService("service2");
+    service2.execute();
+    var service1=serviceLocator.getService("service1");
+    service1.execute();
+    var service2=serviceLocator.getService("service2");
+    service2.execute();
+</script>
+</body>
+</html>
