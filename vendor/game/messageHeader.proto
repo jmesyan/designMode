@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package main;
+
+message MessageHeader {
+  uint32 bodyLength = 1;//包体长度
+  uint32 moduleId = 2;//模块id
+  uint32 callBackId = 3;//回调id
+  bool serverInfo = 4;//0 为无服务器附加信息 1 是有服务器附加信息
+}
