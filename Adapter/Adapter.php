@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: jamesyan
- * Date: 2017/3/19
- * Time: 10:07
- */
+<
 
 interface MediaPlayer{
     public function play($audioType,$fileName);
@@ -62,10 +56,7 @@ class MediaAdapter implements MediaPlayer{
 }
 
 
-class AudioPlayer implements MediaPlayer{
-    static $mediaAdapter;
-    public function play($audioType, $fileName)
-    {
+class 
         // TODO: Implement play() method.
         $audioType=strtolower($audioType);
         if($audioType=="mp3"){
